@@ -8,6 +8,13 @@ import (
 	"testing"
 )
 
+func TestMain(m *testing.M) {
+	//before
+	fmt.Println("BEFORE UNIT TEST")
+	m.Run()
+	fmt.Println("AFTER UNIT TEST")
+	//after
+}
 func TestSkip(t *testing.T) {
 	if runtime.GOOS == "darwin" {
 		t.Skip("Can not run on Mac OS")
