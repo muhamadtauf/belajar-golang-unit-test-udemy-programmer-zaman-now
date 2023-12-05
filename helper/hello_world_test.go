@@ -8,6 +8,25 @@ import (
 	"testing"
 )
 
+func TestTableHelloWorld(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  string
+		expected string
+	}{
+		{name: "Eko", request: "Eko", expected: "Hello Eko"},
+		{name: "Kurniawan", request: "Kurniawan", expected: "Hello Kurniawan"},
+		{name: "Taufik", request: "Taufik", expected: "Hello Taufik"},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWorld(test.request)
+			require.Equal(t, test.expected, result)
+		})
+	}
+}
+
 func TestSubTest(t *testing.T) {
 	t.Run("Eko", func(t *testing.T) {
 		result := HelloWorld("Eko")
